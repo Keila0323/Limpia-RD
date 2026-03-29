@@ -1,18 +1,35 @@
 # Limpia-RD Marketplace Backend (FastAPI)
 
-Backend API for **Limpia-RD**, a marketplace connecting property owners/managers in the Dominican Republic with cleaning and property service providers.
+Backend API for **Limpia-RD**, a marketplace that connects property owners and managers in the Dominican Republic (Airbnb hosts, hotels, villas) with vetted cleaning and maintenance service providers (cleaners, janitors, laundry, deep-clean specialists, handymen).
+
+> **Project status:** MVP complete — actively improving documentation and tests.
+
+---
 
 ## Features
 
-- Service providers (cleaners) CRUD basics with filters
-- Service requests for hosts/clients
-- Matching endpoint for best cleaners
-- Badges with images for cleaners
+- Service provider (cleaner) profiles with full CRUD and filterable search
+- Service requests for hosts/clients with location, property type, budget, and schedule
+- Matching endpoint to return the best cleaners for a given request
+- Cleaner badges with images to highlight specialties and experience
 - Reviews & ratings with automatic cleaner score recalculation
-- Stripe-friendly payment session + webhook flow
-- Lightweight i18n for English/Spanish (`Accept-Language` header or `?lang=en|es`)
+- Stripe-ready payment session + webhook flow for marking jobs as paid
+- Lightweight i18n for English/Spanish via `Accept-Language` header or `?lang=en|es`
 
-## Project structure
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Backend | FastAPI (Python) |
+| Data & ORM | SQLAlchemy, Pydantic, SQLite |
+| Payments | Stripe Checkout + webhooks |
+| API Docs | Automatic OpenAPI/Swagger and ReDoc |
+
+---
+
+## Project Structure
 
 ```text
 .
@@ -30,6 +47,8 @@ Backend API for **Limpia-RD**, a marketplace connecting property owners/managers
     ├── reviews.py
     └── utils.py
 ```
+
+---
 
 ## Setup
 
@@ -68,12 +87,12 @@ export STRIPE_WEBHOOK_SECRET="whsec_..."
 uvicorn main:app --reload
 ```
 
-Open docs at:
-
 - Swagger UI: `http://127.0.0.1:8000/docs`
 - ReDoc: `http://127.0.0.1:8000/redoc`
 
-## Example requests
+---
+
+## API Examples
 
 ### Create a cleaner
 
@@ -137,6 +156,8 @@ curl -X POST http://127.0.0.1:8000/payments/create-session \
     "currency": "USD"
   }'
 ```
+
+---
 
 ## Notes
 
