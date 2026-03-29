@@ -4,7 +4,7 @@ Backend API for **Limpia-RD**, a marketplace that connects property owners and m
 
 > **Project status:** MVP complete — actively improving documentation and tests.
 
-🔗 **Live API Docs:** [View on Swagger UI](https://www.perplexity.ai/computer/a/limpia-rd-api-YRpacY.FTdyvfKs0vVnotA)
+🔗 **Live API Docs:** [View on Swagger UI](https://limpia-rd.onrender.com/docs)
 
 ---
 
